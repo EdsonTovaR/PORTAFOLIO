@@ -53,7 +53,7 @@ const Projects = () => {
       category: "E-commerce Django Project",
       description: "Una tienda en línea especializada en figuras coleccionables de anime, videojuegos, películas y más, con sistema completo de pagos integrado con PayPal.",
       tech: ["Python", "Django", "PostgreSQL", "Docker"],
-      color: "from-yellow-400 to-orange-500",
+      color: "from-purple-400 to-orange-500",
       icon: "🛒"
     }
   ];
