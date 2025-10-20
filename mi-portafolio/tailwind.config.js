@@ -4,6 +4,14 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  safelist: [
+    'text-pink-500',
+    'from-pink-500',
+    'to-pink-500',
+    'text-green-500',
+    'from-green-500',
+    'to-green-500'
+  ],
   theme: {
     extend: {
       colors: {
