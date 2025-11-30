@@ -26,7 +26,7 @@ const Projects = () => {
     },
     {
       title: "Nutrición Gym",
-      category: "Aplicacion Web",
+      category: "Sistema Web",
       description: "Sistema web integral para gestión de gimnasio, incluyendo control de inventarios, registro de miembros, seguimiento de ventas y control de gastos.",
       tech: ["Flask", "Python", "SQLite", "Bootstrap"],
       color: "from-orange-400 to-red-500",
