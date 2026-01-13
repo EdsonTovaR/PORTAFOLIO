@@ -85,7 +85,7 @@ const Footer = () => {
               © {currentYear} Edson Tovar Romo. Todos los derechos reservados.
             </p>
             <p className="font-mono">
-              Hecho con <span className="text-red-500 animate-pulse">❤</span> usando React + Vite
+              Hecho con React + Vite
             </p>
           </div>
 
