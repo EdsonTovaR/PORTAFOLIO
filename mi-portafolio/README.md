@@ -113,4 +113,4 @@ Este proyecto es de código abierto y está disponible bajo la licencia MIT.
 
 ---
 
-Hecho con ❤️ por Edson Tovar Romo - Ingeniero en Inteligencia Artificial
+Edson Tovar Romo - Ingeniero en Inteligencia Artificial
