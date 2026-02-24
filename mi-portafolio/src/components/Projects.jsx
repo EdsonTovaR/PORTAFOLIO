@@ -38,9 +38,9 @@ const Projects = () => {
       color: "from-tech-purple to-purple-500",
       icon: "🔄",
       images: [
-        "https://via.placeholder.com/150x250/1e293b/34d399?text=App+1",
-        "https://via.placeholder.com/150x250/1e293b/34d399?text=App+2",
-        "https://via.placeholder.com/150x250/1e293b/34d399?text=App+3"
+        "/img/sistemaedi_1.jpg",
+        "/img/sistemaedi_2.jpg",
+        "/img/sistemaedi_3.jpg"
       ]
     },
     {
