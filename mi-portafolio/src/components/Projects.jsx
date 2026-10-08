@@ -118,6 +118,20 @@ const Projects = () => {
       ]
     },
     {
+      title: "Mesa de Ayuda IT & Gestión de Tickets (ASSA STEEL)",
+      category: "Gestión de Servicios IT & Web",
+      description: "Sistema interno de Help Desk desarrollado para centralizar, gestionar y dar seguimiento a incidencias y solicitudes de soporte técnico en planta. Cuenta con portal de autoservicio para usuarios con autocompletado en catálogo para reportar fallas (correctivo, entrega de equipo, instalación o baja), y un panel de administración para el área de TI con control de tickets activos, flujo de estados e historial de resoluciones. Además, al cerrar cada ticket, automatiza la generación del formato oficial de servicio requerido por Gestión de Calidad para auditorías normativas ISO-9001 e IATF-16949.",
+      tech: ["React", "Python / Django", "PostgreSQL", "REST API", "Tailwind CSS", "Auditorías ISO / IATF"],
+      color: "from-indigo-600 to-blue-500",
+      icon: "🎫",
+      images: [
+        "/img/ticket_1.png",
+        "/img/ticket_2.png",
+        "/img/ticket_3.png",
+        "/img/ticket_4.png"
+      ]
+    },
+    {
       title: "Orden 66 - Marketplace E-commerce",
       category: "E-commerce Full-Stack",
       description: "Marketplace en Django con catálogo, control de stock, gestión segura de usuarios, procesamiento automatizado de pagos con API de PayPal y módulo de rastreo de envíos en tiempo real con la API REST de DHL.",

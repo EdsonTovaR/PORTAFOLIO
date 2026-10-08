@@ -6,12 +6,12 @@ const Experience = () => {
       position: "Auxiliar de Sistemas",
       period: "2025 - Actualmente",
       tasks: [
-        "Desarrollo de Software y Automatización: Creación y mantenimiento de sistemas internos (sistemas ERP y portales web) utilizando arquitecturas en .NET, Python (Django, Flask) y React",
-        "Optimización de Procesos: Implementación de scripts en Python para la automatización de reportes de inventario, productividad y generación de documentos PDF con identidad corporativa",
-        "Gestión de Datos y Business Intelligence: Desarrollo e implementación de suite de dashboards operativos para piso de planta (producción, scrap, inventarios y asistencia con modo Kiosco), mejorando la visibilidad de KPIs en un 20%. Administración de bases de datos relacionales (SQL Server, PostgreSQL)",
-        "Integración de Sistemas (EDI): Diseño e implementación de un portal EDI con Django y PostgreSQL para el intercambio automatizado y en tiempo real de órdenes y embarques con proveedores",
-        "Soporte Técnico y Administración IT: Diagnóstico de hardware/software, configuración de redes e impresoras, y administración de identidades mediante Active Directory",
-        "Cumplimiento Normativo: Soporte y gestión técnica para el cumplimiento de auditorías de calidad IATF-16949 e ISO-9001"
+        "Desarrollo Web & Portales Corporativos: Creación de sistemas internos (.NET, Python, React) y modernización del portal web corporativo (assamx.com) migrado a React, Vite y Tailwind CSS con soporte multi-idioma (i18n)",
+        "Mesa de Ayuda & Cumplimiento Normativo (ITSM): Diseño e implementación del sistema web de Help Desk para planta; centraliza solicitudes de servicio, asignación de equipos y automatiza la generación del formato oficial de servicio requerido por Gestión de Calidad para auditorías ISO-9001 e IATF-16949",
+        "Gestión de Datos y Business Intelligence: Desarrollo e implementación de la suite de dashboards operativos para piso de manufactura (producción, scrap, inventarios y asistencia con modo Kiosco), incrementando la visibilidad de KPIs en un 20%. Administración de SQL Server y PostgreSQL",
+        "Integración de Sistemas (EDI): Diseño e implementación de portal EDI con Django y PostgreSQL para intercambio automatizado y en tiempo real de órdenes de compra y embarques con proveedores",
+        "Optimización de Procesos: Implementación de scripts en Python para la automatización de reportes de inventario, productividad y generación dinámica de documentos PDF corporativos",
+        "Infraestructura IT & Active Directory: Diagnóstico y mantenimiento de hardware/software, configuración de redes e impresoras, y administración centralizada de identidades mediante Active Directory"
       ],
       color: "from-tech-blue to-cyan-500"
     },
