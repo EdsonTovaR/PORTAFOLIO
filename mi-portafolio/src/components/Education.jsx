@@ -1,14 +1,15 @@
 const Education = () => {
   const education = [
     {
-      institution: "Escuela Superior de Cómputo - Instituto Politécnico Nacional",
+      institution: "Escuela Superior de Cómputo - Instituto Politécnico Nacional (ESCOM - IPN)",
       location: "CDMX",
       degree: "Ingeniería en Inteligencia Artificial",
       period: "2020 - 2024",
       highlights: [
-        "Especialización en visión por computadora y machine learning",
-        "Desarrollo de sistemas de IA aplicados a problemas reales",
-        "Proyectos con Python, OpenCV, TensorFlow y frameworks modernos"
+        "Especialización en Visión por Computadora, Machine Learning y Procesamiento de Lenguaje Natural (NLP)",
+        "Proyecto insignia: Sistema de detección de somnolencia en conductores con OpenCV y Python (prototipo en Raspberry Pi)",
+        "Desarrollo de Agente de IA para automatización de tareas y recordatorios integrado con APIs de Google",
+        "Implementación de arquitecturas de software con Python, OpenCV, TensorFlow y frameworks modernos"
       ],
       color: "from-tech-blue to-cyan-500"
     },
@@ -18,9 +19,10 @@ const Education = () => {
       degree: "Técnico Mecatrónico",
       period: "2017 - 2020",
       highlights: [
-        "Desarrollo de proyectos con PLC para control automatizado",
-        "Diseño y programación de prototipos con Arduino",
-        "Modelado de piezas en AutoCAD y conocimientos en neumática"
+        "Automatización industrial: proyectos con PLC para control de motores, sensores e iluminación industrial",
+        "Robótica y prototipado: diseño y programación con Arduino de brazos robóticos de 3 y 5 ejes y vehículos Bluetooth",
+        "Modelado de piezas y ensambles mecánicos en SolidWorks y AutoCAD",
+        "Sistemas neumáticos, electrónica aplicada y control de servomotores"
       ],
       color: "from-tech-purple to-purple-500"
     }

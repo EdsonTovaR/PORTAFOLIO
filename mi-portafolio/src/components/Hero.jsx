@@ -47,7 +47,7 @@ const Hero = () => {
             Especializado en <span className="text-tech-blue font-semibold">desarrollo de software</span>, 
             {' '}<span className="text-tech-purple font-semibold">visión por computadora</span> y 
             {' '}<span className="text-pink-500 font-semibold">automatización de procesos</span>.
-            Apasionado por aplicar la tecnología para resolver problemas reales.
+            Apasionado por aplicar la tecnología para resolver problemas reales en entornos industriales y educativos, combinando creatividad, precisión técnica y mejora continua.
           </p>
 
           {/* CTA Buttons */}

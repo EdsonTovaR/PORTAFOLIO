@@ -6,49 +6,56 @@ const Skills = () => {
       skills: [
         { name: "Python", level: 95 },
         { name: "JavaScript", level: 90 },
-        { name: "C#", level: 75 },
+        { name: "C#", level: 80 },
         { name: "SQL", level: 85 },
-        { name: "Kotlin", level: 70 },
-        { name: "HTML/CSS", level: 90 }
+        { name: "Kotlin", level: 75 },
+        { name: "HTML / CSS", level: 90 },
+        { name: "Visual Basic", level: 70 }
       ],
-      color: "tech-blue"
+      textClass: "text-tech-blue",
+      barGradient: "bg-gradient-to-r from-cyan-400 to-tech-blue"
     },
     {
       title: "Frameworks & Librerías",
       icon: "🚀",
       skills: [
         { name: "React", level: 90 },
-        { name: "Django", level: 85 },
-        { name: "Flask", level: 90 },
+        { name: "Django", level: 90 },
+        { name: "Flask", level: 85 },
+        { name: ".NET", level: 75 },
         { name: "Node.js", level: 80 },
-        { name: "TensorFlow", level: 75 },
-        { name: "OpenCV", level: 85 }
+        { name: "React Native", level: 70 },
+        { name: "OpenCV", level: 85 },
+        { name: "TensorFlow", level: 75 }
       ],
-      color: "tech-purple"
+      textClass: "text-tech-purple",
+      barGradient: "bg-gradient-to-r from-purple-400 to-tech-purple"
     },
     {
       title: "Bases de Datos",
       icon: "🗄️",
       skills: [
-        { name: "PostgreSQL", level: 85 },
-        { name: "MySQL", level: 90 },
-        { name: "SQLite", level: 85 },
-        { name: "MongoDB", level: 70 }
+        { name: "PostgreSQL", level: 90 },
+        { name: "SQL Server", level: 85 },
+        { name: "MySQL", level: 85 },
+        { name: "SQLite", level: 85 }
       ],
-      color: "pink-500"
+      textClass: "text-pink-400",
+      barGradient: "bg-gradient-to-r from-pink-500 to-rose-400"
     },
     {
-      title: "Herramientas & Tecnologías",
+      title: "Herramientas & Entornos",
       icon: "🛠️",
       skills: [
-        { name: "Git", level: 90 },
+        { name: "Git & GitHub", level: 90 },
         { name: "Docker", level: 75 },
-        { name: "VS Code", level: 95 },
-        { name: "Linux", level: 85 },
+        { name: "Linux / Bash", level: 85 },
         { name: "Power BI", level: 80 },
-        { name: "Android Studio", level: 75 }
+        { name: "VS Code", level: 95 },
+        { name: "Android Studio", level: 80 }
       ],
-      color: "green-500"
+      textClass: "text-emerald-400",
+      barGradient: "bg-gradient-to-r from-emerald-400 to-teal-400"
     }
   ];
 
@@ -60,6 +67,19 @@ const Skills = () => {
     "Python Data Structures"
   ];
 
+  const additionalSkills = [
+    "Redes & IT",
+    "Active Directory",
+    "Auditorías IATF-16949 / ISO-9001",
+    "Soporte Técnico",
+    "PLC Industrial",
+    "Arduino & Robótica",
+    "SolidWorks",
+    "AutoCAD",
+    "Electrónica",
+    "REST APIs"
+  ];
+
   return (
     <section id="habilidades" className="section-container bg-slate-900/30">
       <div className="max-w-7xl mx-auto">
@@ -67,7 +87,7 @@ const Skills = () => {
           <span className="gradient-text">Habilidades & Certificaciones</span>
         </h2>
         <p className="text-gray-400 text-center mb-16 text-lg">
-          Stack tecnológico y conocimientos profesionales
+          Stack tecnológico comprobado y conocimientos profesionales
         </p>
 
         {/* Skills Grid */}
@@ -83,12 +103,12 @@ const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skillIndex}>
                     <div className="flex justify-between mb-2">
-                      <span className="text-gray-300 font-medium">{skill.name}</span>
-                      <span className={`text-${category.color} font-mono text-sm`}>{skill.level}%</span>
+                      <span className="text-gray-300 font-medium text-sm sm:text-base">{skill.name}</span>
+                      <span className={`${category.textClass} font-mono text-sm`}>{skill.level}%</span>
                     </div>
                     <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
                       <div 
-                        className={`h-full bg-gradient-to-r from-${category.color} to-${category.color} rounded-full transition-all duration-1000 ease-out`}
+                        className={`h-full ${category.barGradient} rounded-full transition-all duration-1000 ease-out`}
                         style={{ width: `${skill.level}%` }}
                       ></div>
                     </div>
@@ -100,7 +120,7 @@ const Skills = () => {
         </div>
 
         {/* Certifications */}
-        <div className="card-tech max-w-4xl mx-auto">
+        <div className="card-tech max-w-4xl mx-auto mb-12">
           <div className="flex items-center gap-3 mb-6">
             <span className="text-3xl">🏆</span>
             <h3 className="text-2xl font-bold text-gray-200">Certificaciones</h3>
@@ -120,13 +140,13 @@ const Skills = () => {
         </div>
 
         {/* Additional Skills */}
-        <div className="mt-12 text-center">
-          <h4 className="text-xl font-semibold text-gray-300 mb-4">Otras Habilidades</h4>
-          <div className="flex flex-wrap justify-center gap-3">
-            {["Redes", "Soporte Técnico", "Electrónica Básica", "Arduino", "PLC", "AutoCAD", "Neumática", "REST APIs"].map((skill, index) => (
+        <div className="text-center">
+          <h4 className="text-xl font-semibold text-gray-300 mb-4">Competencias Complementarias</h4>
+          <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 max-w-4xl mx-auto">
+            {additionalSkills.map((skill, index) => (
               <span 
                 key={index}
-                className="px-4 py-2 bg-slate-800/50 text-gray-300 rounded-full text-sm border border-slate-700 hover:border-tech-blue/50 transition-colors"
+                className="px-3.5 py-1.5 bg-slate-800/60 text-gray-300 rounded-full text-xs sm:text-sm border border-slate-700/80 hover:border-tech-blue/50 hover:text-tech-blue transition-all"
               >
                 {skill}
               </span>

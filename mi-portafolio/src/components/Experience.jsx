@@ -4,40 +4,41 @@ const Experience = () => {
       company: "ASSA STEEL SA de CV",
       location: "San Buenaventura, Coah.",
       position: "Auxiliar de Sistemas",
-      period: "2025 - 2026",
+      period: "2025 - Actualmente",
       tasks: [
-        "Soporte técnico a usuarios: diagnóstico y resolución de problemas de hardware y software",
-        "Instalación, configuración y mantenimiento de equipos de cómputo, impresoras, redes y sistemas operativos",
-        "Desarrollo y mantenimiento de sistemas internos utilizando Visual Basic, Python, C# y tecnologías web (React, Django, Flask)",
-        "Gestión de bases de datos: consultas SQL, respaldos y actualizaciones"
+        "Desarrollo de Software y Automatización: Creación y mantenimiento de sistemas internos (sistemas ERP y portales web) utilizando arquitecturas en .NET, Python (Django, Flask) y React",
+        "Optimización de Procesos: Implementación de scripts en Python para la automatización de reportes de inventario, productividad y generación de documentos PDF con identidad corporativa",
+        "Gestión de Datos y Análisis: Desarrollo de dashboards de control de scrap, mejorando la visibilidad de KPIs en un 20%. Administración de bases de datos relacionales (SQL Server, PostgreSQL)",
+        "Integración de Sistemas (EDI): Diseño e implementación de un portal EDI con Django y PostgreSQL para el intercambio automatizado y en tiempo real de órdenes y embarques con proveedores",
+        "Soporte Técnico y Administración IT: Diagnóstico de hardware/software, configuración de redes e impresoras, y administración de identidades mediante Active Directory",
+        "Cumplimiento Normativo: Soporte y gestión técnica para el cumplimiento de auditorías de calidad IATF-16949 e ISO-9001"
       ],
       color: "from-tech-blue to-cyan-500"
     },
     {
-      company: "Daimay Automotive Interior",
-      location: "Saltillo, Coah.",
-      position: "Operador General",
+      company: "Presidencia Municipal San Buenaventura - Depto. de Tecnología",
+      location: "San Buenaventura, Coah.",
+      position: "Estancia Profesional (Desarrollo Móvil)",
       period: "2024 - 2025",
       tasks: [
-        "Implementación de scripts en Python para automatizar reportes de inventario y productividad",
-        "Desarrollo de dashboards de control de scrap que mejoraron la visibilidad de indicadores en un 20%",
-        "Diseño e implementación de un sistema EDI (Electronic Data Interchange) con Django y PostgreSQL",
-        "Desarrollo de aplicación web en Django para gestión de cuentas por pagar y control de proveedores"
+        "Desarrollo Móvil Nativo: Diseño y programación integral de una aplicación educativa para Android utilizando Kotlin y Android Studio",
+        "Diseño de Interfaz y Experiencia de Usuario (UI/UX): Creación de interfaces interactivas y atractivas orientadas a facilitar el aprendizaje digital",
+        "Integración de Funcionalidades: Implementación de motor de lectura para libros digitales interactivos y desarrollo de lógicas de programación para minijuegos educativos",
+        "Pruebas y Optimización: Monitoreo del rendimiento de la app, debugging y optimización de recursos para asegurar fluidez en distintos dispositivos móviles"
       ],
-      color: "from-tech-purple to-purple-500"
+      color: "from-green-400 to-emerald-500"
     },
     {
-      company: "Operadora Merco",
-      location: "San Buenaventura, Coah.",
-      position: "Auxiliar de Departamento Salchilacteos",
-      period: "2022 - 2024",
+      company: "Orden 66",
+      location: "Proyecto Remoto",
+      position: "Desarrollador Full-Stack (E-commerce)",
+      period: "2024 - 2025",
       tasks: [
-        "Apoyo en la recepción, almacenamiento y manejo adecuado de productos",
-        "Mantenimiento de estándares de higiene y limpieza cumpliendo normas sanitarias",
-        "Atención al cliente en mostrador, ofreciendo productos y resolviendo dudas",
-        "Control de inventario y fechas de caducidad para rotación adecuada de productos"
+        "Desarrollo de Plataforma E-commerce: Creación integral de un marketplace utilizando Django, abarcando desde el panel de administración y control de stock, hasta la gestión segura de usuarios",
+        "Procesamiento de Pagos: Integración segura de la API de PayPal para la gestión automatizada e instantánea de transacciones",
+        "Logística y Rastreo: Implementación de un módulo de seguimiento de envíos en tiempo real mediante el consumo de la API REST de DHL"
       ],
-      color: "from-pink-500 to-rose-500"
+      color: "from-tech-purple to-purple-500"
     }
   ];
 

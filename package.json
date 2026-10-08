@@ -1,0 +1,22 @@
+{
+  "name": "edson-tovar-portafolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portafolio profesional de Edson Tovar Romo - Ingeniero en IA & Desarrollador Full-Stack",
+  "scripts": {
+    "dev": "npm --prefix mi-portafolio run dev",
+    "build": "npm --prefix mi-portafolio run build",
+    "preview": "npm --prefix mi-portafolio run preview",
+    "lint": "npm --prefix mi-portafolio run lint"
+  },
+  "keywords": [
+    "portfolio",
+    "react",
+    "vite",
+    "ai-engineer",
+    "tailwind"
+  ],
+  "author": "Edson Tovar Romo",
+  "license": "MIT"
+}
+
