@@ -1,18 +1,45 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const Projects = () => {
-  // Estado para controlar qué imagen está seleccionada para el modal
-  const [selectedImage, setSelectedImage] = useState(null);
+  // Estado para la galería modal interactiva: { images: [...], currentIndex: 0, title: '' }
+  const [modalGallery, setModalGallery] = useState(null);
 
-  // Manejo de accesibilidad: tecla Escape y bloqueo de scroll
+  const handlePrev = useCallback((e) => {
+    e?.stopPropagation();
+    setModalGallery(prev => {
+      if (!prev || prev.images.length <= 1) return prev;
+      return {
+        ...prev,
+        currentIndex: (prev.currentIndex - 1 + prev.images.length) % prev.images.length
+      };
+    });
+  }, []);
+
+  const handleNext = useCallback((e) => {
+    e?.stopPropagation();
+    setModalGallery(prev => {
+      if (!prev || prev.images.length <= 1) return prev;
+      return {
+        ...prev,
+        currentIndex: (prev.currentIndex + 1) % prev.images.length
+      };
+    });
+  }, []);
+
+  // Manejo de teclado (Escape, Flecha Izquierda, Flecha Derecha) y bloqueo de scroll
   useEffect(() => {
     const handleKeyDown = (e) => {
+      if (!modalGallery) return;
       if (e.key === 'Escape') {
-        setSelectedImage(null);
+        setModalGallery(null);
+      } else if (e.key === 'ArrowLeft') {
+        handlePrev();
+      } else if (e.key === 'ArrowRight') {
+        handleNext();
       }
     };
 
-    if (selectedImage) {
+    if (modalGallery) {
       window.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
     } else {
@@ -23,7 +50,7 @@ const Projects = () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'unset';
     };
-  }, [selectedImage]);
+  }, [modalGallery, handlePrev, handleNext]);
 
   const projects = [
     {
@@ -43,6 +70,39 @@ const Projects = () => {
       color: "from-green-400 to-emerald-500",
       icon: "📱",
       images: []
+    },
+    {
+      title: "APG Manufacturing Solutions",
+      category: "Desarrollo Web & Landing",
+      description: "Sitio web corporativo y landing page para empresa de integración robótica, automatización y manufactura inteligente. Desarrollado con React y Vite, incluye diseño responsivo con estética dark industrial, selector de idiomas, catálogo de celdas y servicios industriales, y canales de contacto directo vía WhatsApp y correo electrónico.",
+      tech: ["React", "Vite", "Tailwind CSS", "JavaScript", "Vercel"],
+      color: "from-blue-500 to-cyan-400",
+      icon: "⚙️",
+      liveUrl: "https://apg-landing.vercel.app",
+      images: [
+        "/img/apg_1.png",
+        "/img/apg_2.png",
+        "/img/apg_3.png",
+        "/img/apg_4.png"
+      ]
+    },
+    {
+      title: "ASSA STEEL - Portal Corporativo & Rediseño Web",
+      category: "Refactorización & Web Corporativa",
+      description: "Modernización, refactorización y rediseño integral del portal web corporativo de ASSA STEEL (assamx.com). Migración de un sitio legado en HTML/CSS/JS con código espagueti a una arquitectura moderna y modular en React, Vite y Tailwind CSS. Implementación de selector multi-idioma optimizado (Español, Inglés y Alemán), nuevos procesos industriales, certificaciones IATF-16949 / ISO-9001 y mejores canales de contacto y cotización.",
+      tech: ["React", "Vite", "Tailwind CSS", "JavaScript", "i18n", "Responsive Design"],
+      color: "from-blue-600 to-indigo-500",
+      icon: "🏭",
+      liveUrl: "https://assamx.com",
+      images: [
+        "/img/assapage_1.png",
+        "/img/assapage_2.png",
+        "/img/assapage_5.png",
+        "/img/assapage_6.png",
+        "/img/assapage_3.png",
+        "/img/assapage_7.png",
+        "/img/assapage_4.png"
+      ]
     },
     {
       title: "Sistema EDI (Electronic Data Interchange)",
@@ -73,18 +133,18 @@ const Projects = () => {
       ]
     },
     {
-      title: "Control de Scrap Dashboard",
-      category: "Business Intelligence & Data",
-      description: "Desarrollo de dashboards industriales y análisis de KPIs en ASSA STEEL que mejoraron la visibilidad del scrap en un 20%. Extracción, transformación y visualización de datos de producción.",
-      tech: ["Python", "Power BI", "Pandas", "SQL Server", "PostgreSQL"],
-      color: "from-yellow-400 to-orange-500",
-      icon: "📊",
+      title: "Dashboard de Operaciones y Producción Industrial (ASSA STEEL)",
+      category: "Business Intelligence & Control Operativo",
+      description: "Plataforma integral de visualización de datos y Business Intelligence en tiempo real para planta industrial. Centraliza módulos de Producción (metas vs scrap), Control de Scrap & Calidad (máquinas críticas e inspectores), Entradas y Materia Prima (con análisis de tendencia predictiva), Salidas y Embarques, y un panel de Recursos Humanos para monitoreo de turnos y asistencias en dos plantas, incorporando modo Kiosco para piso de manufactura.",
+      tech: ["Python", "Web Dashboard", "Pandas", "SQL Server", "PostgreSQL", "Data Analytics", "Kiosk Mode"],
+      color: "from-amber-400 to-orange-500",
+      icon: "📈",
       images: [
-        "/img/dashboardassa_1.jpg",
-        "/img/dashboardassa_2.jpg",
-        "/img/dashboardassa_3.jpg",
-        "/img/dashboardassa_4.jpg",
-        "/img/dashboardassa_5.jpg"
+        "/img/dashboard_operaciones_1.png",
+        "/img/dashboard_operaciones_2.png",
+        "/img/dashboard_operaciones_3.png",
+        "/img/dashboard_operaciones_4.png",
+        "/img/dashboard_operaciones_5.png"
       ]
     },
     {
@@ -169,55 +229,153 @@ const Projects = () => {
                         alt={`${project.title} - captura ${imgIndex + 1}`}
                         className="h-32 w-auto object-cover rounded border border-slate-700 snap-center shrink-0 hover:border-tech-blue transition-all cursor-pointer hover:opacity-90 hover:scale-105"
                         loading="lazy"
-                        onClick={() => setSelectedImage(imgUrl)}
+                        onClick={() => setModalGallery({
+                          images: project.images,
+                          currentIndex: imgIndex,
+                          title: project.title
+                        })}
                       />
                     ))}
                   </div>
                 </div>
               )}
 
-              <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-800/50">
-                {project.tech.map((tech, techIndex) => (
-                  <span 
-                    key={techIndex}
-                    className="px-3 py-1 bg-tech-blue/10 text-tech-blue text-xs rounded-full border border-tech-blue/30 font-mono"
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mt-auto pt-4 border-t border-slate-800/50">
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech, techIndex) => (
+                    <span 
+                      key={techIndex}
+                      className="px-2.5 py-1 bg-tech-blue/10 text-tech-blue text-xs rounded-full border border-tech-blue/30 font-mono"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 bg-tech-blue/15 hover:bg-tech-blue/25 text-tech-blue hover:text-white rounded-lg text-xs font-semibold border border-tech-blue/30 transition-all self-start sm:self-auto group/btn shrink-0"
                   >
-                    {tech}
-                  </span>
-                ))}
+                    <span>Ver sitio</span>
+                    <svg className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                )}
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* --- MODAL PARA VER IMAGEN EN PANTALLA COMPLETA --- */}
-      {selectedImage && (
+      {/* --- MODAL LIGHTBOX INTERACTIVO CON NAVEGACIÓN Y MINIATURAS --- */}
+      {modalGallery && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4 cursor-zoom-out animate-fade-in"
-          onClick={() => setSelectedImage(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-2 sm:p-4 cursor-zoom-out select-none animate-fade-in"
+          onClick={() => setModalGallery(null)}
           role="dialog"
           aria-modal="true"
-          aria-label="Vista ampliada de la imagen"
+          aria-label="Galería ampliada"
         >
-          <div className="relative max-w-5xl w-full flex justify-center cursor-default" onClick={(e) => e.stopPropagation()}>
-            {/* Botón de cerrar accesible */}
-            <button 
-              type="button"
-              className="absolute -top-12 right-0 md:-right-4 text-gray-300 hover:text-white transition-colors text-2xl font-bold bg-slate-900/80 hover:bg-red-500/80 rounded-full w-10 h-10 flex items-center justify-center border border-slate-700 shadow-lg cursor-pointer"
-              onClick={() => setSelectedImage(null)}
-              aria-label="Cerrar vista previa (Esc)"
-              title="Cerrar (Esc)"
-            >
-              ✕
-            </button>
-            
-            {/* Imagen expandida */}
-            <img 
-              src={selectedImage} 
-              alt="Captura ampliada del proyecto" 
-              className="max-w-full max-h-[85vh] object-contain rounded-lg border border-slate-700 shadow-2xl"
-            />
+          <div 
+            className="relative max-w-6xl w-full flex flex-col items-center justify-center cursor-default" 
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Barra superior del modal */}
+            <div className="w-full flex items-center justify-between mb-3 px-2 text-white">
+              <div className="flex items-center gap-3 min-w-0">
+                <span className="font-semibold text-sm sm:text-base text-gray-200 truncate">
+                  {modalGallery.title}
+                </span>
+                {modalGallery.images.length > 1 && (
+                  <span className="px-2.5 py-0.5 rounded-full bg-slate-800 text-tech-blue text-xs font-mono border border-slate-700 shrink-0">
+                    {modalGallery.currentIndex + 1} de {modalGallery.images.length}
+                  </span>
+                )}
+              </div>
+
+              {/* Botón de cerrar */}
+              <button 
+                type="button"
+                className="text-gray-300 hover:text-white transition-colors text-xl font-bold bg-slate-900/80 hover:bg-red-500/80 rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center border border-slate-700 shadow-lg cursor-pointer shrink-0 ml-3"
+                onClick={() => setModalGallery(null)}
+                aria-label="Cerrar vista previa (Esc)"
+                title="Cerrar (Esc)"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Contenedor central de la foto con flechas laterales */}
+            <div className="relative w-full flex items-center justify-center">
+              {/* Flecha Anterior */}
+              {modalGallery.images.length > 1 && (
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  className="absolute left-2 sm:left-4 z-20 p-2 sm:p-3 rounded-full bg-slate-900/85 hover:bg-tech-blue hover:text-slate-900 text-white border border-slate-700 hover:border-tech-blue shadow-xl transition-all cursor-pointer backdrop-blur-sm group"
+                  aria-label="Foto anterior (←)"
+                  title="Anterior (←)"
+                >
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+              )}
+
+              {/* Foto activa */}
+              <div className="w-full flex justify-center items-center overflow-hidden rounded-lg">
+                <img 
+                  key={modalGallery.currentIndex}
+                  src={modalGallery.images[modalGallery.currentIndex]} 
+                  alt={`${modalGallery.title} - captura ${modalGallery.currentIndex + 1}`} 
+                  className="max-w-full max-h-[70vh] sm:max-h-[75vh] object-contain rounded-lg border border-slate-700 shadow-2xl transition-all"
+                />
+              </div>
+
+              {/* Flecha Siguiente */}
+              {modalGallery.images.length > 1 && (
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  className="absolute right-2 sm:right-4 z-20 p-2 sm:p-3 rounded-full bg-slate-900/85 hover:bg-tech-blue hover:text-slate-900 text-white border border-slate-700 hover:border-tech-blue shadow-xl transition-all cursor-pointer backdrop-blur-sm group"
+                  aria-label="Foto siguiente (→)"
+                  title="Siguiente (→)"
+                >
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              )}
+            </div>
+
+            {/* Tira inferior de miniaturas */}
+            {modalGallery.images.length > 1 && (
+              <div className="flex items-center gap-2 mt-3 px-2 overflow-x-auto max-w-full py-1">
+                {modalGallery.images.map((img, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setModalGallery(prev => ({ ...prev, currentIndex: idx }))}
+                    className={`h-11 w-14 sm:h-13 sm:w-18 rounded border-2 overflow-hidden shrink-0 transition-all cursor-pointer ${
+                      idx === modalGallery.currentIndex
+                        ? 'border-tech-blue scale-105 shadow-md shadow-tech-blue/30 opacity-100'
+                        : 'border-slate-700 opacity-50 hover:opacity-85'
+                    }`}
+                    aria-label={`Ir a foto ${idx + 1}`}
+                  >
+                    <img src={img} alt="" className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Guía de atajos */}
+            <p className="text-gray-400 text-xs mt-2 font-mono hidden sm:block">
+              Usa las flechas ◀ ▶ del teclado o botones laterales para navegar • Esc para salir
+            </p>
           </div>
         </div>
       )}

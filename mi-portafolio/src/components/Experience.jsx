@@ -8,7 +8,7 @@ const Experience = () => {
       tasks: [
         "Desarrollo de Software y Automatización: Creación y mantenimiento de sistemas internos (sistemas ERP y portales web) utilizando arquitecturas en .NET, Python (Django, Flask) y React",
         "Optimización de Procesos: Implementación de scripts en Python para la automatización de reportes de inventario, productividad y generación de documentos PDF con identidad corporativa",
-        "Gestión de Datos y Análisis: Desarrollo de dashboards de control de scrap, mejorando la visibilidad de KPIs en un 20%. Administración de bases de datos relacionales (SQL Server, PostgreSQL)",
+        "Gestión de Datos y Business Intelligence: Desarrollo e implementación de suite de dashboards operativos para piso de planta (producción, scrap, inventarios y asistencia con modo Kiosco), mejorando la visibilidad de KPIs en un 20%. Administración de bases de datos relacionales (SQL Server, PostgreSQL)",
         "Integración de Sistemas (EDI): Diseño e implementación de un portal EDI con Django y PostgreSQL para el intercambio automatizado y en tiempo real de órdenes y embarques con proveedores",
         "Soporte Técnico y Administración IT: Diagnóstico de hardware/software, configuración de redes e impresoras, y administración de identidades mediante Active Directory",
         "Cumplimiento Normativo: Soporte y gestión técnica para el cumplimiento de auditorías de calidad IATF-16949 e ISO-9001"
